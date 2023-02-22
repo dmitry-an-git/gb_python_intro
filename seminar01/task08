@@ -1,0 +1,21 @@
+# Задача 8: Требуется определить, можно ли от шоколадки размером n × m
+# долек отломить k долек, если разрешается сделать один разлом по
+# прямой между дольками (то есть разломить шоколадку на два
+# прямоугольника).
+# Пример:
+# 3 2 4 -> yes
+# 3 2 1 -> no
+
+
+# so k to be less than n*m, also k to be divisable either by m or n
+
+n = int(input("Please enter size n: "))
+m = int(input("Please enter size m: "))
+k = int(input("Please enter area of the part k: "))
+
+if (k>=n*m):
+    print("NO")
+else: 
+    if (k%n == 0) or (k%m == 0):
+        print ("YES")
+    else: print ("NO")

@@ -1,0 +1,46 @@
+# Задача 6: Вы пользуетесь общественным транспортом? Вероятно, вы
+# расплачивались за проезд и получали билет с номером. Счастливым
+# билетом называют такой билет с шестизначным номером, где сумма
+# первых трех цифр равна сумме последних трех. Т.е. билет с номером
+# 385916 – счастливый, т.к. 3+8+5=9+1+6. Вам требуется написать
+# программу, которая проверяет счастливость билета.
+
+# Пример:
+# 385916 -> yes
+# 123456 -> no
+
+
+ticket_num = int(input("Please enter your 6-digit ticket number: "))
+
+a = ticket_num // 10**5
+ticket_num = ticket_num % 10**5
+
+b = ticket_num // 10**4
+ticket_num = ticket_num % 10**4
+
+c = ticket_num // 10**3
+ticket_num = ticket_num % 10**3
+
+d = ticket_num // 10**2
+ticket_num = ticket_num % 10**2
+
+e = ticket_num // 10
+f = ticket_num % 10
+
+if (a+b+c == d+e+f):
+    print("YES")
+else: print("F")
+
+## same but using string
+# ticket_num = input("Please enter your 6-digit ticket number: ")
+
+# a = int(ticket_num[0])
+# b = int(ticket_num[1])
+# c = int(ticket_num[2])
+# d = int(ticket_num[3])
+# e = int(ticket_num[4])
+# f = int(ticket_num[5])
+
+# if (a+b+c == d+e+f):
+#     print("YES")
+# else: print("F")
