@@ -29,7 +29,7 @@ def load_lines(): # reads the file and repopulates the list with tupples accordi
     global lines 
     lines = []
     with open("data.txt", "a+") as data:
-        data.seek(0) # if there is no file a+ creates it, if there is one, we need to go the begining
+        data.seek(0) # if there is no file a+ creates it, if there is one, we need to go to the beginning
         lines = data.readlines()
         lines = [txt_to_tup(line) for line in lines]
     print("Done")
@@ -102,11 +102,11 @@ def search_txt(): # search by keyword in the list of tupples
     if len(result) == 0:
         print("Nothing has been found")
     else: 
-        print("The following is found:")
+        print("The following has been found:")
         print_lines(result)
     return result
 
-def input_index(wording): # checks for correct input of indexes from the user
+def input_index(wording): # checks for correct input of indexes by the user
     while True:
         try:
             index = int(input(wording))
@@ -115,7 +115,7 @@ def input_index(wording): # checks for correct input of indexes from the user
             pass
     return index
 
-def modify(): # takes the index of the entry and updates it
+def modify(): # takes the index of one entry from the user and updates it
     global lines
     size = len(lines)
     index = input_index("Please enter the index of the line you want to modify: ")
