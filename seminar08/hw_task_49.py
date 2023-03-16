@@ -9,11 +9,11 @@
 # 4. Использование функций. Ваша программа не должна быть линейной
 
 
-# the code uses list "lines" that contains tupples with telephone entries as main DB
+# the code uses list "lines" that contains tuples with telephone entries as main DB
 # the DB can be read from and saved to a txt file that holds the data in a semicolon-separated format
-# the code works with the list and saves is to the drive only when requested
+# the code works with the list and saves it to the drive only when requested
 
-def tup_to_txt(tup): # converts tupple to string
+def tup_to_txt(tup): # converts tuple to string
     txt = ""
     for i in tup:
         txt += i
@@ -21,10 +21,10 @@ def tup_to_txt(tup): # converts tupple to string
     txt += "\n"
     return txt
 
-def txt_to_tup(txt): # converts string to tupple
+def txt_to_tup(txt): # converts string to tuple
     return tuple(txt.split(";")[:-1])
 
-def load_lines(): # reads the file and repopulates the list with tupples accordingly
+def load_lines(): # reads the file and repopulates the list with tuples accordingly
     print("Reading the DB...", end = " ")
     global lines 
     lines = []
@@ -36,19 +36,19 @@ def load_lines(): # reads the file and repopulates the list with tupples accordi
     if len(lines)==0:
         print("Warning! The DB is empty!")
 
-def enter_new(): # asks user for a prompt and returns a tupple with new info
+def enter_new(): # asks user for a prompt and returns a tuple with new info
     # use only 7 chars as tabs shift if more
     name = input("Please enter the first name: ")[:7]
     surname = input("Please enter the second name: ")[:7]
     phone = input("Please enter the phone number: ")
     return (name,surname,phone)
 
-def add_new(entry): # adds a tupple to the list
+def add_new(entry): # adds a tuple to the list
     global lines
     lines.append(entry)
     print("Done")
 
-def print_line(index, line): # if we need to print some tupple in a nice way
+def print_line(index, line): # if we need to print some tuple in a nice way
     print(index, end = "\t\t")
     for item in line:
         print(item, end = "\t\t")
@@ -90,7 +90,7 @@ def search_one(keyword, string): # technical function to check if a keyword is i
             break
     return ans
 
-def search_txt(): # search by keyword in the list of tupples
+def search_txt(): # search by keyword in the list of tuples
     global lines
     prompt = input("Please enter the keyword: ")
     result = []
