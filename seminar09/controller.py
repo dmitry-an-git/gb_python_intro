@@ -15,11 +15,11 @@ def start():
                 module.save_file()
                 view.show_message("File is saved!")
             case 3: 
-                view.show_contacts(db,"No contacts!")
+                view.show_contacts(db, "No contacts!")
             case 4:
                 module.add_contact(view.add_contact())
             case 5:
-                index = view.input_index('Enter the index to update: ')
+                index = view.input_index('Enter the index of the item to be updated: ')
                 replacement_cont = view.change_contact(db,index)
                 module.change_contact(replacement_cont,index)
             case 6:
@@ -27,5 +27,9 @@ def start():
                 res = module.find_contact(keyword)
                 view.show_contacts(res,"Nothing is found!")
             case 7:
+                index = view.input_index('Enter the index of the item to be removed: ')
+                module.remove_contact(index)
+                view.show_message("Deleted!")
+            case 8:
                 break
     

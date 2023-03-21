@@ -33,5 +33,9 @@ def find_contact(prompt: str):
         for key in contact.values():
             if prompt.lower() in key.lower():
                 res.append(contact)
-    res = tuple(res)
+                break
     return res
+
+def remove_contact(index: int):
+    phone_book.pop(index)
+
