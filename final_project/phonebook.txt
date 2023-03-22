@@ -1,0 +1,5 @@
+dima;88888;myself
+piotr;777777;some hobo
+superoleg;calls you;default entry
+victor;123456;junkie
+vasily;654321;togliatti
