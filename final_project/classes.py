@@ -11,14 +11,19 @@ class Contact:
         return f"{self.name};{self.phone_number};{self.comment}"
 
 class PhoneBook:
-    def __init__(self):
+    def __init__(self, filename = "phonebook.txt"):
         self.contacts = []
+        self.filename = filename
+        # self.load_from_file()
     
     def __str__(self):
         lst_of_tup=[]
         for i, contact in enumerate(self.contacts, start=1):
             lst_of_tup.append((i,contact))
         return self.super_print(lst_of_tup)
+    
+    def print_all(self):
+        print(self.__str__())
     
     def super_print(self, index_lst: list[tuple]):
         output = ''
@@ -73,22 +78,26 @@ class PhoneBook:
         old_contact = self.contacts[index-1]
         list_of_tup = [(index,old_contact)]
         print(f"Current contact: \n{self.super_print(list_of_tup)}")
-        new_contact = self.get_contact_from_user(old_contact)
+        new_contact = self.get_contact_from_user()
         self.contacts[index-1] = new_contact
         list_of_tup = [(index,new_contact)]
         print(f"Updated contact: \n{self.super_print(list_of_tup)}")
     
-    def save_to_file(self, filename="phonebook.txt"):
-        with open(filename, "w") as file:
+    def save_to_file(self):
+        with open(self.filename, "w") as file:
             for contact in self.contacts:
                 file.write(f"{contact.to_csv()}\n")
         print("Phone book saved.")
     
-    def load_from_file(self, filename="phonebook.txt"):
+    def load_from_file(self):
         self.contacts = []
-        with open(filename, "r") as file:
-            for line in file.readlines():
-                fields = line.strip().split(";")
-                contact = Contact(*fields)
-                self.contacts.append(contact)
-        print("Phone book loaded.")
+        try:
+            with open(self.filename, "r") as file:
+                for line in file.readlines():
+                    fields = line.strip().split(";")
+                    contact = Contact(*fields)
+                    self.contacts.append(contact)
+            print("Phone book loaded.")
+        except: 
+            print("Loading phone book failed.")
+        
